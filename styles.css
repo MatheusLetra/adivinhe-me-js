@@ -163,7 +163,7 @@ input {
     align-items: center;
     flex-direction: column;
     position: relative;
-    top: -750px;
+    top: -800px;
     height: 800px;
 }
 
@@ -183,4 +183,11 @@ button{
     -webkit-appearance: none;
     outline: none;
     box-sizing: border-box;
+}
+
+#header-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

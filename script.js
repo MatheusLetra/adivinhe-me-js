@@ -2061,6 +2061,7 @@ let WORD = sortWord()
 WORD = WORD.toLowerCase()
 WORD = convertToSlug(WORD)
 WORD = WORD.toUpperCase()
+console.log(WORD)
 
 
 function validateWord(objectArray, nextObjectArray) {
@@ -2192,7 +2193,9 @@ validateWord(wordSixEntries, null)
 
 if (getProgress('adivinhemeProgress') === null) {
     setProgress(0)
-} 
+}  else {
+    document.querySelector('#progress-info').innerHTML = 'Sua sequência de acertos é: ' + getProgress('adivinhemeProgress') 
+}
 
 wordOneEntries[0].focus()
 
