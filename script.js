@@ -2131,6 +2131,20 @@ let wordFourEntries = document.querySelectorAll('#word-four input')
 let wordFiveEntries = document.querySelectorAll('#word-five input')
 let wordSixEntries = document.querySelectorAll('#word-six input')
 let buttonRestartGame = document.querySelector('#restart-game')
+let divElements = document.querySelectorAll('div')
+
+divElements.forEach((div, index) => {
+    let entrieIndex = -1;
+    div.addEventListener('click', (e) => {
+        entries.forEach((entrie, index) => {
+            if (!entrie.disabled && entrieIndex == -1) {
+                entrieIndex = index
+            }
+        })
+        entries[entrieIndex].focus()
+    })
+})
+
 
 entries.forEach((entrie, index) => {
 
