@@ -2137,7 +2137,7 @@ divElements.forEach((div, index) => {
     let entrieIndex = -1;
     div.addEventListener('click', (e) => {
         entries.forEach((entrie, index) => {
-            if (!entrie.disabled && entrieIndex == -1) {
+            if (!entrie.disabled && entrieIndex == -1 && entrie.value.trim() == '') {
                 entrieIndex = index
             }
         })
