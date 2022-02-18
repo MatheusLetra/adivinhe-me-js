@@ -2049,6 +2049,14 @@ function restartGame() {
     document.location.reload(true)
 }
 
+function setProgress(item) {
+    return localStorage.setItem('adivinhemeProgress', item)
+}
+
+function getProgress(item){
+    return localStorage.getItem(item) 
+}
+
 let WORD = sortWord()
 WORD = WORD.toLowerCase()
 WORD = convertToSlug(WORD)
@@ -2083,8 +2091,15 @@ function validateWord(objectArray, nextObjectArray) {
                             nextObjectArray[0].focus()
                         } else {
                             document.querySelector('#title-sucess').innerHTML = 'Que pena...'
+                            setProgress(0)
+                            let progress = parseInt(getProgress('adivinhemeProgress'))
+                            document.querySelector('#progress').innerHTML = 'Sua sequência de acertos é: ' + progress
                         }
                     } else {
+                        let progress = parseInt(getProgress('adivinhemeProgress'))
+                        setProgress(progress + 1)
+                        progress = parseInt(getProgress('adivinhemeProgress'))
+                        document.querySelector('#progress').innerHTML = 'Sua sequência de acertos é: ' + progress
                         document.querySelector('#title-sucess').innerHTML = 'Parabéns!'
                     }
 
@@ -2175,4 +2190,10 @@ validateWord(wordFourEntries, wordFiveEntries)
 validateWord(wordFiveEntries, wordSixEntries)
 validateWord(wordSixEntries, null)
 
+if (getProgress('adivinhemeProgress') === null) {
+    setProgress(0)
+} 
+
 wordOneEntries[0].focus()
+
+
