@@ -2020,9 +2020,29 @@ const WORDS = ['algoz',
     'Bisel'
 ]
 
+const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+
 function sortWord() {
     return WORDS[Math.floor(Math.random() * WORDS.length)]
 }
+
+function cloneLetter(letter) {
+    let div_letters = document.getElementById('letters')
+    let letter_obj = document.querySelectorAll('.letter')[0]
+    let letter_obj_clone = letter_obj.cloneNode(true)
+    letter_obj_clone.children[0].innerHTML = letter
+    div_letters.appendChild(letter_obj_clone)
+}
+
+function generateLetters() {
+
+    letters.forEach((letter) => {
+        if (letter !== 'A') {
+            cloneLetter(letter)
+        }
+    })
+}
+
 
 function convertToSlug(text) {
     const a = 'àáäâãèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;'
@@ -2053,8 +2073,8 @@ function setProgress(item) {
     return localStorage.setItem('adivinhemeProgress', item)
 }
 
-function getProgress(item){
-    return localStorage.getItem(item) 
+function getProgress(item) {
+    return localStorage.getItem(item)
 }
 
 let WORD = sortWord()
@@ -2063,6 +2083,16 @@ WORD = convertToSlug(WORD)
 WORD = WORD.toUpperCase()
 console.log(WORD)
 
+function paintLetter(letter, color) {
+    var letters = document.querySelectorAll('.letter')
+    letters.forEach((letterIndex) => {
+        if (letterIndex.children[0].innerHTML === letter) {
+            if (letterIndex.style.backgroundColor !== '#3aa394') {
+                letterIndex.style.backgroundColor = color
+            }
+        }
+    })
+}
 
 function validateWord(objectArray, nextObjectArray) {
     objectArray.forEach((entrie, index) => {
@@ -2081,9 +2111,10 @@ function validateWord(objectArray, nextObjectArray) {
                             objectArray[letter].style.backgroundColor = '#b30909'
                             okay = false
                         }
+                        paintLetter(objectArray[letter].value, objectArray[letter].style.backgroundColor)
                     }
 
-                    
+
 
                     enabledDisabled(objectArray, true)
                     if (!okay) {
@@ -2139,6 +2170,14 @@ function validateWord(objectArray, nextObjectArray) {
 }
 
 
+function generateOnClickEvents(){
+    let letters = document.querySelectorAll('.letter')
+    letters.forEach((letter) =>{
+
+    })
+}
+
+
 let entries = document.querySelectorAll('input')
 let wordOneEntries = document.querySelectorAll('#word-one input')
 let wordTwoEntries = document.querySelectorAll('#word-two input')
@@ -2157,7 +2196,9 @@ divElements.forEach((div, index) => {
                 entrieIndex = index
             }
         })
-        entries[entrieIndex].focus()
+        if (entries[entrieIndex] !== undefined) {
+            entries[entrieIndex].focus()
+        }
     })
 })
 
@@ -2175,7 +2216,9 @@ entries.forEach((entrie, index) => {
     })
 })
 
-buttonRestartGame.addEventListener('click',restartGame)
+buttonRestartGame.addEventListener('click', restartGame)
+
+generateLetters()
 
 enabledDisabled(wordOneEntries, false)
 enabledDisabled(wordTwoEntries, true)
@@ -2193,8 +2236,6 @@ validateWord(wordSixEntries, null)
 
 if (getProgress('adivinhemeProgress') === null) {
     setProgress(0)
-}  else {
-    document.querySelector('#progress-info').innerHTML = 'Sua sequência de acertos é: ' + getProgress('adivinhemeProgress') 
 }
 
 wordOneEntries[0].focus()
