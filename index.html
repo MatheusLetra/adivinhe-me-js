@@ -1,134 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt">
-
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adivinhe-me</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <title>Jogo de Palavras</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <div id="header-info">
-        <h3>ADIVINHE-ME</h3>
+    <div id="game-container">
+        <h1>Advinhe a Palavra!</h1>
+        <div id="root"></div>
+        <div id="letters"></div>
+        <div id="sucess" style="display: none;">
+            <h2 id="title-sucess"></h2>
+            <p id="correct-word"></p>
+            <p id="current-streak"></p>
+        </div>
+        <button id="restart-game">Reiniciar Jogo</button>
     </div>
-    <div id="root">
-        <div id="word-one">
-            <div class="char-word-one">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-one">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-one">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-one">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-one">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-        <div id="word-two">
-            <div class="char-word-two">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-two">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-two">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-two">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-two">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-        <div id="word-three">
-            <div class="char-word-three">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-three">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-three">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-three">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-three">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-        <div id="word-four">
-            <div class="char-word-four">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-four">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-four">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-four">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-four">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-        <div id="word-five">
-            <div class="char-word-five">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-five">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-five">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-five">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-five">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-        <div id="word-six">
-            <div class="char-word-six">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-six">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-six">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-six">
-                <input type="text" maxlength="1" />
-            </div>
-            <div class="char-word-six">
-                <input type="text" maxlength="1" />
-            </div>
-        </div>
-    </div>
-    <div id="letters">
-        <div class="letter">
-            <span>A</span>
-        </div>   
-    </div>
-    <div id="sucess">
-        <h3 id="title-sucess">Parabéns</h3>
-        <label id="correct-word">A palavra correta é: TESTE </label>
-        <label id="progress">Sua sequência de acertos é: 25 </label>
-        <button id="restart-game">Jogar Novamente</button>
-    </div>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
